@@ -13,7 +13,9 @@
   <body>
     <div class="ui container">
       <%= render 'layouts/navigation' %>
-
+      <%# show messages, if they are %>
+      <%= render 'layouts/messages' %>
+      
       <%= yield %>
     </div>
   </body>
