@@ -2,10 +2,11 @@ class SessionsController < ApplicationController
   # restrict actions for logged in users
   before_action :logged_in_redirect, only: [:new, :create]
 
+  # action for login page
   def new
   end
 
-  # the method for sign in users
+  # action for create session path (for sign in users)
   def create
     # find the user by entered username
     user = User.find_by(username: params[:session][:username])
@@ -25,7 +26,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  # the method delete a session when a user loged out
+  # action for destroy session (log out user)
   def destroy
     session[:user_id] = nil
     flash[:success] = "You have successfully signed out"

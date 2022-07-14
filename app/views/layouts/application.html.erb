@@ -2,16 +2,19 @@
 <html>
   <head>
     <title>MessageMe</title>
+    <%# favicon %>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <%# wrap the whole body into container make padding from left and right %>
     <div class="ui container">
+      <%# display navigation menu on the top of the page %>
       <%= render 'layouts/navigation' %>
       <%# show messages, if they are %>
       <%= render 'layouts/messages' %>

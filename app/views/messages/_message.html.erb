@@ -1,6 +1,8 @@
+<%# display messages from db %>
 <div class="event">
   <div class="content">
     <div class="summary">
+      <%# &nbsp is a space in html language %>
       <span class="chatbox-username"><%= message.user.username %>:&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <%= message.body %>
     </div>

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   # create routes for users, except :new, because :signup created above
   resources :users, except: [:new]
+  post 'message', to: 'messages#create'
 end
