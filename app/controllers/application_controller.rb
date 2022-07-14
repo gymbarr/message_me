@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   # the method prevent not logged in user to make any actions with articles and user's profiles
   def require_user
     if !logged_in?
-      flash[:alert] = "You must be signed in to perform that action"
+      flash[:error] = "You must be signed in to perform that action"
       redirect_to login_path
     end
   end

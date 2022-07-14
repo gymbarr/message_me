@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  # restrict actions for logged in users
+  before_action :logged_in_redirect, only: [:new, :create]
+
   def new
   end
 
@@ -26,6 +29,16 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:success] = "You have successfully signed out"
-    redirect_to root_path
+    redirect_to login_path
   end
+
+  private
+
+  def logged_in_redirect
+    if logged_in?
+      flash[:error] = "You are already logged in"
+      redirect_to root_path
+    end
+  end
+
 end
