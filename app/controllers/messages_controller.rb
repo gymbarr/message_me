@@ -6,9 +6,10 @@ class MessagesController < ApplicationController
   def create
     message = current_user.messages.build(message_params)
 
-    # redirect to root equals to reload page for updating chatbox
+    # broadcast message to chatroom channel
     if message.save
-      redirect_to root_path
+      ActionCable.server.broadcast "chatroom_channel",
+                                    mod_message: message_render(message)
     end
   end
 
@@ -17,6 +18,11 @@ class MessagesController < ApplicationController
   # whitelisting message params
   def message_params
     params.require(:message).permit(:body)
+  end
+
+  # the method is for rendering messages partial
+  def message_render(message)
+    render(partial: 'message', locals: { message: message })
   end
 
 end

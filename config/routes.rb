@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   # create routes for users, except :new, because :signup created above
   resources :users, except: [:new]
   post 'message', to: 'messages#create'
+
+  mount ActionCable.server, at: '/cable'
 end
