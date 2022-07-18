@@ -25,11 +25,23 @@ scroll_bottom = function() {
   }
 }
 
+// send a message by enter key
+submit_message = function() {
+  $('#message_body').on('keydown', function(e) {
+    if (e.keyCode == 13) {
+      $('button').click();
+      // remove value to not submit the entered message twice
+      e.target.value = "";
+    };
+  });
+};
+
 $(document).on('turbolinks:load', function() {
   $('.ui.dropdown').dropdown();
 
   $('.message .close').on('click', function() {
     $(this).closest('.message').transition('fade');
   });
+  submit_message();
   scroll_bottom();
 })

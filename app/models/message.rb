@@ -4,4 +4,6 @@ class Message < ApplicationRecord
 
   # constraint for message body length
   validates :body, presence: true, length: { minimum: 1, maximum: 1000 }
+
+  scope :custom_display, -> { order(:created_at).last(20) }
 end

@@ -5,7 +5,7 @@ class ChatroomController < ApplicationController
   # the method for displaying messages in the chatbox and for sending new messages
   def index
     @message = Message.new
-    @messages = Message.all
+    @messages = Message.custom_display
   end
 
 end
