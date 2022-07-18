@@ -7,3 +7,9 @@
 .chatbox-username {
   color: #4283CA
 }
+
+#messages {
+  height: 15em;
+  // add scrolling to the chatbox
+  overflow: auto;
+}
