@@ -1,0 +1,30 @@
+<%# sign up page %>
+
+<h2 class="ui center aligned icon header">
+  <p>Sign Up to MessageMe</p>
+  <i class="circular user blue icon"></i>
+</h2>
+
+<div class="ui centered grid">
+  <div class="four wide column">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <div class="ui form">
+        <div class="field">
+          <label>Username</label>
+          <div class="ui left icon input">
+            <%= f.text_field :username, placeholder: "Username" %>
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="ui left icon input">
+            <%= f.password_field :password, placeholder: "Password" %>
+            <i class="lock icon"></i>
+          </div>
+        </div>
+        <%= f.submit "Sign Up", class: "ui blue submit button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
