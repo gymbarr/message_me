@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_07_13_151151) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
